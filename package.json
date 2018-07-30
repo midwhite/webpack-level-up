@@ -1,0 +1,19 @@
+{
+  "name": "webpack-level-up",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midwhite/webpack-level-up.git"
+  },
+  "author": "midwhite <midwhite.development@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/midwhite/webpack-level-up/issues"
+  },
+  "homepage": "https://github.com/midwhite/webpack-level-up#readme"
+}
