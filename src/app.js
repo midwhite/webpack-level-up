@@ -1,1 +1,1 @@
-console.log('Hello, webpack!!');
+console.log('Hello webpack from app.js');
