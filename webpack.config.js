@@ -1,4 +1,8 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+var UglyfyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+var CompressionPlugin = require('compression-webpack-plugin');
+var WebpackS3Plugin = require('webpack-s3-plugin');
 
 module.exports = {
   mode: 'production',
@@ -11,6 +15,22 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({ template: './src/page.html' }),
+    new WebpackCleanupPlugin(),
+    new CompressionPlugin({ test: /\.js$/, filename: '[path]' }),
+    new WebpackS3Plugin({
+      s3Options: {
+        accessKeyId: '<YOUR AWS ACCESS KEY ID>',
+        secretAccessKey: '<YOUR AWS SECRET ACCESS KEY>',
+        region: '<YOUR BUCKET REGION NAME>',
+      },
+      s3UploadOptions: {
+        Bucket: '<YOUR BUCKET NAME>',
+        ContentEncoding: 'gzip',
+      },
+    }),
   ],
+  optimization: {
+    minimizer: [ new UglyfyjsWebpackPlugin() ],
+  },
 };
