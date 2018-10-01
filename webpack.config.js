@@ -28,6 +28,10 @@ module.exports = {
         Bucket: '<YOUR BUCKET NAME>',
         ContentEncoding: 'gzip',
       },
+      cloudfrontInvalidateOptions: {
+        DistributionId: '<YOUR CLOUDFRONT DISTRIBUTION ID>',
+        Items: ['/*'],
+      },
     }),
   ],
   optimization: {
